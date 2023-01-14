@@ -1,5 +1,5 @@
 public abstract class Figure {
-    public double getSurfaceArea;
-    public double getVolume;
+    public abstract double getSurfaceArea();
+    public abstract double getVolume();
 
 }
