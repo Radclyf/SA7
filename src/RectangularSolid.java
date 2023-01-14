@@ -1,12 +1,27 @@
+import javax.swing.*;
+
 public class RectangularSolid extends Figure{
     private double length;
     private double width;
     private double height;
 
     public RectangularSolid (double length, double width, double height) {
-        this.height = height;
-        this.width = width;
-        this.length = length;
+        try {
+            if(height < 0) {
+                throw new IllegalArgumentException("height cannot be negative");
+            }
+            this.height = height;
+            if(width < 0) {
+                throw new IllegalArgumentException("width cannot be negative");
+            }
+            this.width = width;
+            if(length < 0) {
+                throw new IllegalArgumentException("length cannot be negative");
+            }
+            this.length = length;
+        } catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid number");
+        }
     }
 
     @Override
@@ -28,7 +43,14 @@ public class RectangularSolid extends Figure{
         private double side;
         public Cube(double side) {
             super(side, side, side);
-            this.side = side;
+            try {
+                if(side < 0) {
+                    throw new IllegalArgumentException("side cannot be negative");
+                }
+                this.side = side;
+            } catch(NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Please enter a valid number");
+            }
         }
 
         @Override
