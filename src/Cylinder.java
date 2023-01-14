@@ -15,4 +15,9 @@ public class Cylinder extends Figure{
     public double getVolume() {
         return Math.PI * Math.pow(radius, 2) * height2;
     }
+
+    @Override
+    public String toString() {
+        return "Cylinder (surface area: " + getSurfaceArea() + ", volume: " + getVolume() + ")";
+    }
 }

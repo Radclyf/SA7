@@ -43,7 +43,7 @@ public class RectangularSolid extends Figure{
 
         @Override
         public String toString() {
-            return "Rectangular Solid (surface area: " + getSurfaceArea() + ", volume: " + getVolume() + ")";
+            return "Cube (surface area: " + getSurfaceArea() + ", volume: " + getVolume() + ")";
         }
 
     }
