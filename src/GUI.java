@@ -16,6 +16,7 @@ public class GUI {
     private JLabel volumeField;
     private JLabel nameField;
     private JButton clearButton;
+    private JButton loadButton;
 
 
     public GUI() {
@@ -123,6 +124,17 @@ public class GUI {
                 baseField.setEnabled(true);
                 perimeterField.setEnabled(true);
                 radiusField.setEnabled(true);
+            }
+        });
+        loadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String input = loadButton.getText();
+                try{
+                    int index = Integer.parseInt(input);
+                } catch(NumberFormatException ex){
+                    JOptionPane.showMessageDialog(null,"Invalid Input! Please enter a valid number.");
+                }
             }
         });
     }
