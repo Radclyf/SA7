@@ -157,7 +157,7 @@ public class GUI {
         volumeSortButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<Figure> figuresList = new ArrayList<>();
+                List<Figure> figuresList = null;
                 Collections.sort(figuresList, new VolumeComparator());
 
                 textArea1.setText("");
