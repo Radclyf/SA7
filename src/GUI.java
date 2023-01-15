@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -156,7 +157,7 @@ public class GUI {
         volumeSortButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<Figure> figuresList = null;
+                List<Figure> figuresList = new ArrayList<>();
                 Collections.sort(figuresList, new VolumeComparator());
 
                 textArea1.setText("");
@@ -169,7 +170,7 @@ public class GUI {
         surfaceAreaSortButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<Figure> figuresList = null;
+                List<Figure> figuresList = new ArrayList<>();
                 Collections.sort(figuresList, new SurfaceAreaComparator());
 
                 textArea1.setText("");
@@ -183,7 +184,7 @@ public class GUI {
         nameSortButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<Figure> figuresList = null;
+                List<Figure> figuresList = new ArrayList<>();
                 Collections.sort(figuresList, new FigureComparator());
 
                 textArea1.setText("");
