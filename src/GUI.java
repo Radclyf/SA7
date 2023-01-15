@@ -151,47 +151,47 @@ public class GUI {
                 }
             }
         });
+
+
         volumeSortButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                List<Figure> figuresList = null;
+                Collections.sort(figuresList, new VolumeComparator());
 
+                textArea1.setText("");
+                for(Figure f : figuresList) {
+                    textArea1.append(f.getShape() + " - Surface Area: " + f.getSurfaceArea() + " - Volume: " + f.getVolume()+"\n");
+                }
             }
         });
 
-        class volumeSortButton implements ActionListener {
-            public void actionPerformed(ActionEvent e) {
-                List<Figure> figuresList = null;
-                Collections.sort(figuresList, new VolumeComparator());
-            }
-        }
-
-        textArea1.setText("");
-        Figure[] figuresList = new Figure[0];
-        for(Figure f : figuresList) {
-            textArea1.append(f.getShape() + " - Surface Area: " + f.getSurfaceArea() + " - Volume: " + f.getVolume()+"\n");
-        }
-        figuresList = new Figure[0];
         surfaceAreaSortButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                List<Figure> figuresList = null;
+                Collections.sort(figuresList, new SurfaceAreaComparator());
 
+                textArea1.setText("");
+                for(Figure f : figuresList) {
+                    textArea1.append(f.getShape() + " - Surface Area: " + f.getSurfaceArea() + " - Volume: " + f.getVolume()+"\n");
+                }
             }
         });
 
-        Figure[] finalFiguresList = figuresList;
-        class surfaceAreaSortButton implements ActionListener {
+
+        nameSortButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 List<Figure> figuresList = null;
-                Collections.sort(figuresList, new SurfaceAreaComparator());
+                Collections.sort(figuresList, new FigureComparator());
+
+                textArea1.setText("");
+                for(Figure f : figuresList) {
+                    textArea1.append(f.getShape() + " - Surface Area: " + f.getSurfaceArea() + " - Volume: " + f.getVolume()+"\n");
+                }
             }
-        }
-
-        textArea1.setText("");
-        for(Figure f : figuresList) {
-            textArea1.append(f.getShape() + " - " + f.getShape() + " - Surface Area: " + f.getSurfaceArea() + " - Volume: " + f.getVolume()+"\n");
-        }
-
-
+        });
     }
 
     public static void main(String[] args) {
