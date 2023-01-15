@@ -15,6 +15,7 @@ public class GUI {
     private JLabel surfaceAreaField;
     private JLabel volumeField;
     private JLabel nameField;
+    private JButton clearButton;
 
 
     public GUI() {
@@ -100,6 +101,16 @@ public class GUI {
 
                 JTextArea figuresTextArea = new JTextArea();
                 figuresTextArea.append(name + " - " + shape + " - Surface Area: " + surfaceArea + " - Volume: " + volume);
+            }
+        });
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nameField.setText("");
+                comboBox1.setSelectedIndex(0);
+                nameField.setEnabled(true);
+                comboBox1.setEnabled(true);
+                saveButton.setEnabled(true);
             }
         });
     }
