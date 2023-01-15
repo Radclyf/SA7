@@ -1,9 +1,18 @@
+import javax.swing.*;
+
 public class RightCircularCone extends Figure{
     public double radius1;
     public double height4;
 
 
     public RightCircularCone(double radius1, double height4){
+        try {
+            if(radius1 < 0) {
+                throw new IllegalArgumentException("radius cannot be negative");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid number");
+        }
         this.radius1 = radius1;
         this.height4 = height4;
     }
