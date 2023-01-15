@@ -117,6 +117,12 @@ public class GUI {
                 nameField.setEnabled(true);
                 comboBox1.setEnabled(true);
                 saveButton.setEnabled(true);
+                lengthField.setEnabled(true);
+                widthField.setEnabled(true);
+                heightField.setEnabled(true);
+                baseField.setEnabled(true);
+                perimeterField.setEnabled(true);
+                radiusField.setEnabled(true);
             }
         });
     }
