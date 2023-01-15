@@ -147,25 +147,6 @@ public class GUI {
                 }
             }
         });
-        volumeSortButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                class Figure implements Comparable<Figure>{
-                    private double volume;
-                    // other properties
-                    @Override
-                    public int compareTo(Figure o) {
-                        if (this.volume > o.volume) {
-                            return 1;
-                        } else if (this.volume < o.volume) {
-                            return -1;
-                        }
-                        return 0;
-                    }
-                }
-
-            }
-        });
     }
 
     public static void main(String[] args) {
