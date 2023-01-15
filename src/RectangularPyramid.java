@@ -20,6 +20,11 @@ public class RectangularPyramid extends Figure{
     }
 
     @Override
+    public String getShape() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "Rectangular Pyramid (surface area: " + getSurfaceArea() + ", volume: " + getVolume() + ")";
     }
@@ -27,22 +32,22 @@ public class RectangularPyramid extends Figure{
     public static class Pyramid extends RectangularPyramid {
         private double baseArea;
         private double perimeter1;
-        private double height2;
-        public Pyramid(double baseArea, double perimeter1, double height2) {
-            super(baseArea, perimeter1, height2);
-            this.height2 = height2;
+        private double height4;
+        public Pyramid(double baseArea, double perimeter1, double height4) {
+            super(baseArea, perimeter1, height4);
+            this.height4 = height4;
             this.perimeter1 = perimeter1;
             this.baseArea = baseArea;
         }
 
         @Override
         public double getSurfaceArea() {
-            return (baseArea + (perimeter1 * height2)) / 2;
+            return (baseArea + (perimeter1 * height4)) / 2;
         }
 
         @Override
         public double getVolume() {
-            return (baseArea * height2) / 3;
+            return (baseArea * height4) / 3;
         }
 
         @Override

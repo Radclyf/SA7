@@ -16,6 +16,11 @@ public class Tetrahedron extends Figure{
     }
 
     @Override
+    public String getShape() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "Tetrahedron (surface area: " + getSurfaceArea() + ", volume: " + getVolume() + ")";
     }

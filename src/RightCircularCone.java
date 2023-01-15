@@ -2,10 +2,10 @@ import javax.swing.*;
 
 public class RightCircularCone extends Figure{
     public double radius1;
-    public double height4;
+    public double height5;
 
 
-    public RightCircularCone(double radius1, double height4){
+    public RightCircularCone(double radius1, double height5){
         try {
             if(radius1 < 0) {
                 throw new IllegalArgumentException("radius cannot be negative");
@@ -14,16 +14,21 @@ public class RightCircularCone extends Figure{
             JOptionPane.showMessageDialog(null, "Please enter a valid number");
         }
         this.radius1 = radius1;
-        this.height4 = height4;
+        this.height5 = height5;
     }
     @Override
     public double getSurfaceArea() {
-        return Math.PI * radius1 * (radius1 + Math.sqrt(Math.pow(height4, 2) + Math.pow(radius1, 2)));
+        return Math.PI * radius1 * (radius1 + Math.sqrt(Math.pow(height5, 2) + Math.pow(radius1, 2)));
     }
 
     @Override
     public double getVolume() {
-        return Math.PI * Math.pow(radius1, 2) * height4 / 3;
+        return Math.PI * Math.pow(radius1, 2) * height5 / 3;
+    }
+
+    @Override
+    public String getShape() {
+        return null;
     }
 
     @Override

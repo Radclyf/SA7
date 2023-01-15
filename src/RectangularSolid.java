@@ -35,6 +35,11 @@ public class RectangularSolid extends Figure{
     }
 
     @Override
+    public String getShape() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "Rectangular Solid (surface area: " + getSurfaceArea() + ", volume: " + getVolume() + ")";
     }
