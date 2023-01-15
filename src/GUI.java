@@ -98,6 +98,12 @@ public class GUI {
                 saveButton.setEnabled(false);
                 nameField.setEnabled(false);
                 comboBox1.setEnabled(false);
+                lengthField.setEnabled(false);
+                widthField.setEnabled(false);
+                heightField.setEnabled(false);
+                baseField.setEnabled(false);
+                perimeterField.setEnabled(false);
+                radiusField.setEnabled(false);
 
                 JTextArea figuresTextArea = new JTextArea();
                 figuresTextArea.append(name + " - " + shape + " - Surface Area: " + surfaceArea + " - Volume: " + volume);
