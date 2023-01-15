@@ -1,19 +1,19 @@
 import javax.swing.*;
 
 public class RectangularSolid extends Figure{
-    private double length;
-    private double width;
-    private double height;
+    private final double length;
+    private final double width;
+    private final double height;
 
     public RectangularSolid (double length, double width, double height) {
-            this.height = height;
-            this.width = width;
-            this.length = length;
+        this.length = length;
+        this.width = width;
+        this.height = height;
     }
 
     @Override
     public double getSurfaceArea() {
-        return 2 * (length * width + width * height + length * height);
+        return 2 * (length * width + length * height + width * height);
     }
 
     @Override
