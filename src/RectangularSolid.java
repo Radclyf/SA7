@@ -6,22 +6,9 @@ public class RectangularSolid extends Figure{
     private double height;
 
     public RectangularSolid (double length, double width, double height) {
-        try {
-            if(height < 0) {
-                throw new IllegalArgumentException("height cannot be negative");
-            }
             this.height = height;
-            if(width < 0) {
-                throw new IllegalArgumentException("width cannot be negative");
-            }
             this.width = width;
-            if(length < 0) {
-                throw new IllegalArgumentException("length cannot be negative");
-            }
             this.length = length;
-        } catch(NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Please enter a valid number");
-        }
     }
 
     @Override
