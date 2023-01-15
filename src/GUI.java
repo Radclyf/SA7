@@ -1,8 +1,11 @@
-import jdk.internal.foreign.abi.Binding;
-
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,7 +31,9 @@ public class GUI {
     private JButton surfaceAreaSortButton;
     private JButton nameSortButton;
     private JTextField sideField;
-    private Binding.Allocate figuresList;
+    private List<Figure> figuresList;
+    private Label tfSurfaceArea;
+    private Label tfVolume;
 
 
     public GUI() {
@@ -276,6 +281,48 @@ public class GUI {
                 for(Figure f : figuresList) {
                     textArea1.append(f.getShape() + " - Surface Area: " + f.getSurfaceArea() + " - Volume: " + f.getVolume()+"\n");
                 }
+            }
+        });
+
+        loadButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String input = loadButton.getText();
+                boolean found = false;
+                try {
+                    FileInputStream fis = new FileInputStream("figures.data");
+                    ObjectInputStream ois = new ObjectInputStream(fis);
+                    figuresList = (List<Figure>) ois.readObject();
+                    ois.close();
+                    fis.close();
+                } catch (IndexOutOfBoundsException exception) {
+                    JOptionPane.showMessageDialog(null, "Error: Invalid index.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                }catch (NumberFormatException exception) {
+                    JOptionPane.showMessageDialog(null, "Error: Index must be a numerical value.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
+                for (Figure figure : figuresList) {
+                    if (figure.getNumber().equals(input)) {
+                        nameField.setText(figure.getShape());
+                        tfSurfaceArea.setText(String.valueOf(figure.getSurfaceArea()));
+                        tfVolume.setText(String.valueOf(figure.getVolume()));
+                        comboBox1.setSelectedIndex(Integer.parseInt(figure.getShape()));
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    JOptionPane.showMessageDialog(null, "Invalid input, no figure found with number: " + input);
+                }
+                saveButton.setEnabled(false);
+                loadButton.setEnabled(false);
+                nameField.setEnabled(false);
+                textArea1.setEnabled(false);
+                comboBox1.setEnabled(false);
             }
         });
     }
