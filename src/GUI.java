@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class GUI {
     private JPanel mainPanel;
@@ -17,6 +18,8 @@ public class GUI {
     private JLabel nameField;
     private JButton clearButton;
     private JButton loadButton;
+    private JTextArea textArea1;
+    private JButton volumeSortButton;
 
 
     public GUI() {
@@ -72,7 +75,7 @@ public class GUI {
                         double length = Double.parseDouble(lengthField.getText());
                         double width = Double.parseDouble(widthField.getText());
                         double height = Double.parseDouble(heightField.getText());
-                        surfaceArea = 2 * (length * width + width * height + length * height);
+                        surfaceArea = 2 * width * length + height * length + height * width;
                         volume = length * width * height;
                         break;
                     case "Cube":
@@ -93,9 +96,6 @@ public class GUI {
                         break;
                 }
 
-                surfaceAreaField.setText(String.valueOf(surfaceArea));
-                volumeField.setText(String.valueOf(volume));
-
                 saveButton.setEnabled(false);
                 nameField.setEnabled(false);
                 comboBox1.setEnabled(false);
@@ -106,14 +106,22 @@ public class GUI {
                 perimeterField.setEnabled(false);
                 radiusField.setEnabled(false);
 
-                JTextArea figuresTextArea = new JTextArea();
-                figuresTextArea.append(name + " - " + shape + " - Surface Area: " + surfaceArea + " - Volume: " + volume);
+
+                DecimalFormat df = new DecimalFormat("#.##");
+                textArea1.append(shape + " - Surface Area: " + df.format(surfaceArea) + " - Volume: " + df.format(volume) + "\n");
+
             }
         });
         clearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 nameField.setText("");
+                lengthField.setText("");
+                widthField.setText("");
+                heightField.setText("");
+                baseField.setText("");
+                perimeterField.setText("");
+                radiusField.setText("");
                 comboBox1.setSelectedIndex(0);
                 nameField.setEnabled(true);
                 comboBox1.setEnabled(true);
@@ -124,6 +132,8 @@ public class GUI {
                 baseField.setEnabled(true);
                 perimeterField.setEnabled(true);
                 radiusField.setEnabled(true);
+
+
             }
         });
         loadButton.addActionListener(new ActionListener() {
@@ -135,6 +145,25 @@ public class GUI {
                 } catch(NumberFormatException ex){
                     JOptionPane.showMessageDialog(null,"Invalid Input! Please enter a valid number.");
                 }
+            }
+        });
+        volumeSortButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                class Figure implements Comparable<Figure>{
+                    private double volume;
+                    // other properties
+                    @Override
+                    public int compareTo(Figure o) {
+                        if (this.volume > o.volume) {
+                            return 1;
+                        } else if (this.volume < o.volume) {
+                            return -1;
+                        }
+                        return 0;
+                    }
+                }
+
             }
         });
     }
