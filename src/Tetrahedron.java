@@ -1,18 +1,18 @@
 public class Tetrahedron extends Figure{
-    private double area;
+    private double sideLength;
 
 
-    public Tetrahedron(double area){
-        this.area = area;
+    public Tetrahedron(double sideLength){
+        this.sideLength = sideLength;
     }
     @Override
     public double getSurfaceArea() {
-        return Math.sqrt(3) * Math.pow(area, 2);
+        return Math.sqrt(3) * (sideLength * sideLength);
     }
 
     @Override
     public double getVolume() {
-        return Math.pow(area, 3) / 6 * Math.sqrt(2);
+        return (Math.pow(sideLength,3))/(6 * Math.sqrt(2));
     }
 
     @Override
