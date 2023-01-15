@@ -1,3 +1,5 @@
+import jdk.internal.foreign.abi.Binding;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,6 +28,7 @@ public class GUI {
     private JButton surfaceAreaSortButton;
     private JButton nameSortButton;
     private JTextField sideField;
+    private Binding.Allocate figuresList;
 
 
     public GUI() {
@@ -232,17 +235,6 @@ public class GUI {
                 radiusField.setEnabled(true);
                 sideField.setEnabled(true);
 
-            }
-        });
-        loadButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String input = loadButton.getText();
-                try{
-                    int index = Integer.parseInt(input);
-                } catch(NumberFormatException ex){
-                    JOptionPane.showMessageDialog(null,"Invalid Input! Please enter a valid number.");
-                }
             }
         });
 
