@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
+import java.util.Collections;
+import java.util.List;
 
 public class GUI {
     private JPanel mainPanel;
@@ -20,6 +22,8 @@ public class GUI {
     private JButton loadButton;
     private JTextArea textArea1;
     private JButton volumeSortButton;
+    private JButton surfaceAreaSortButton;
+    private JButton nameSortButton;
 
 
     public GUI() {
@@ -35,8 +39,6 @@ public class GUI {
                     case "Cylinder":
                         double radius = Double.parseDouble(radiusField.getText());
                         double height2 = Double.parseDouble(heightField.getText());
-                        surfaceArea = 2 * Math.PI * radius * height2 + 2 * Math.PI * Math.pow(radius, 2);
-                        volume = Math.PI * Math.pow(radius, 2) * height2;
                         break;
                     case "Ellipsoid":
                         double a = Double.parseDouble(lengthField.getText());
@@ -147,6 +149,26 @@ public class GUI {
                 }
             }
         });
+        volumeSortButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        class SortButtonListener implements ActionListener {
+            public void actionPerformed(ActionEvent e) {
+                List<Figure> figuresList = null;
+                Collections.sort(figuresList, new VolumeComparator());
+            }
+        }
+
+        textArea1.setText("");
+        Figure[] figuresList = new Figure[0];
+        for(Figure f : figuresList) {
+            textArea1.append(f.getShape() + " - Surface Area: " + f.getSurfaceArea() + " - Volume: " + f.getVolume()+"\n");
+        }
+        figuresList = new Figure[0];
     }
 
     public static void main(String[] args) {
