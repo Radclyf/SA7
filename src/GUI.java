@@ -40,64 +40,74 @@ public class GUI {
                     case "Cylinder":
                         double radius = Double.parseDouble(radiusField.getText());
                         double height2 = Double.parseDouble(heightField.getText());
-                        surfaceArea = 2 * Math.PI * radius * height2 + 2 * Math.PI * Math.pow(radius, 2);
-                        volume = Math.PI * Math.pow(radius, 2) * height2;
+                        Cylinder Cylinder = new Cylinder(radius, height2);
+                        surfaceArea = Cylinder.getSurfaceArea();
+                        volume = Cylinder.getVolume();
                         break;
                     case "Ellipsoid":
                         double a = Double.parseDouble(lengthField.getText());
                         double b = Double.parseDouble(widthField.getText());
                         double c = Double.parseDouble(heightField.getText());
-                        surfaceArea = 4 * Math.PI * Math.sqrt(((a*b) + (b*c) + (a*c))/3);
-                        volume = (4.0 / 3.0) * Math.PI * a * b * c;
+                        Ellipsoid Ellipsoid = new Ellipsoid(a, b, c);
+                        surfaceArea = Ellipsoid.getSurfaceArea();
+                        volume = Ellipsoid.getVolume();
                         break;
                     case "Sphere":
                         double radius2 = Double.parseDouble(radiusField.getText());
-                        surfaceArea = 4 * Math.PI * Math.pow(radius2, 2);
-                        volume = (4.0 / 3.0) * Math.PI * Math.pow(radius2, 3);
+                        Ellipsoid Sphere = new Ellipsoid.Sphere(radius2);
+                        surfaceArea = Sphere.getSurfaceArea();
+                        volume = Sphere.getVolume();
                         break;
                     case "Prism":
                         double base = Double.parseDouble(baseField.getText());
                         double perimeter = Double.parseDouble(perimeterField.getText());
                         double height3 = Double.parseDouble(heightField.getText());
-                        surfaceArea = 2 * base + perimeter * height3;
-                        volume = base * height3;
+                        Prism Prism = new Prism(base, perimeter, height3);
+                        surfaceArea = Prism.getSurfaceArea();
+                        volume = Prism.getVolume();
                         break;
                     case "Rectangular Pyramid":
                         double length1 = Double.parseDouble(lengthField.getText());
                         double width1 = Double.parseDouble(widthField.getText());
                         double height1 = Double.parseDouble(heightField.getText());
-                        surfaceArea = length1 * width1 + length1 * Math.sqrt(Math.pow(width1 / 2, 2) + Math.pow(height1, 2) + width1) * Math.sqrt(Math.pow(1 / 2, 2) + Math.pow(height1, 2));
-                        volume = length1 * width1 * height1 / 3;
+                        RectangularPyramid RectangularPyramid = new RectangularPyramid(length1, width1, height1);
+                        surfaceArea = RectangularPyramid.getSurfaceArea();
+                        volume = RectangularPyramid.getVolume();
                         break;
                     case "Pyramid":
                         double baseArea = Double.parseDouble(lengthField.getText());
                         double perimeter1 = Double.parseDouble(widthField.getText());
                         double height4 = Double.parseDouble(heightField.getText());
-                        surfaceArea = (baseArea + (perimeter1 * height4)) / 2;
-                        volume = (baseArea * height4) / 3;
+                        RectangularPyramid Pyramid = new RectangularPyramid.Pyramid(baseArea, perimeter1, height4);
+                        surfaceArea = Pyramid.getSurfaceArea();
+                        volume = Pyramid.getVolume();
                         break;
                     case "Rectangular Solid":
                         double length = Double.parseDouble(lengthField.getText());
                         double width = Double.parseDouble(widthField.getText());
                         double height = Double.parseDouble(heightField.getText());
-                        surfaceArea = 2 * width * length + height * length + height * width;
-                        volume = length * width * height;
+                        RectangularSolid RectangularSolid = new RectangularSolid(length, width, height);
+                        surfaceArea = RectangularSolid.getSurfaceArea();
+                        volume = RectangularSolid.getVolume();
                         break;
                     case "Cube":
                         double side = Double.parseDouble(lengthField.getText());
-                        surfaceArea = 6 * side * side;
-                        volume = side * side * side;
+                        RectangularSolid Cube = new RectangularSolid.Cube(side);
+                        surfaceArea = Cube.getSurfaceArea();
+                        volume = Cube.getVolume();
                         break;
                     case "Right Circular Cone":
                         double radius1 = Double.parseDouble(radiusField.getText());
                         double height5 = Double.parseDouble(heightField.getText());
-                        surfaceArea = Math.PI * radius1 * (radius1 + Math.sqrt(Math.pow(height5, 2) + Math.pow(radius1, 2)));
-                        volume = Math.PI * Math.pow(radius1, 2) * height5 / 3;
+                        RightCircularCone RightCircularCone = new RightCircularCone(radius1, height5);
+                        surfaceArea = RightCircularCone.getSurfaceArea();
+                        volume = RightCircularCone.getVolume();
                         break;
                     case "Tetrahedron":
                         double sideLength = Double.parseDouble(lengthField.getText());
-                        surfaceArea = Math.sqrt(3) * (sideLength * sideLength);
-                        volume = (Math.pow(sideLength,3))/(6 * Math.sqrt(2));
+                        Tetrahedron Tetrahedron = new Tetrahedron(sideLength);
+                        surfaceArea = Tetrahedron.getSurfaceArea();
+                        volume = Tetrahedron.getVolume();
                         break;
                 }
 

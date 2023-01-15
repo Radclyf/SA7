@@ -46,7 +46,7 @@ public class Ellipsoid extends Figure{
 
     public static class Sphere extends Ellipsoid {
         private double radius2;
-        public Sphere(double radius21, double v, double radius2) {
+        public Sphere(double radius2) {
             super(radius2, radius2, radius2);
             try {
                 if(radius2 < 0) {
