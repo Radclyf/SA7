@@ -40,6 +40,11 @@ public class Ellipsoid extends Figure{
     }
 
     @Override
+    public Object getNumber() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "Ellipsoid (surface area: " + getSurfaceArea() + ", volume: " + getVolume() + ")";
     }

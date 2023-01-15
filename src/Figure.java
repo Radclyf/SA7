@@ -3,4 +3,5 @@ public abstract class Figure {
     public abstract double getVolume();
     public abstract String getShape();
 
+    public abstract Object getNumber();
 }

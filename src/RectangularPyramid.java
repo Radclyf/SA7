@@ -25,6 +25,11 @@ public class RectangularPyramid extends Figure{
     }
 
     @Override
+    public Object getNumber() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "Rectangular Pyramid (surface area: " + getSurfaceArea() + ", volume: " + getVolume() + ")";
     }

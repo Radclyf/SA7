@@ -31,6 +31,11 @@ public class Cylinder extends Figure{
     }
 
     @Override
+    public Object getNumber() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "Cylinder (surface area: " + getSurfaceArea() + ", volume: " + getVolume() + ")";
     }

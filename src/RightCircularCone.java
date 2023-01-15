@@ -32,6 +32,11 @@ public class RightCircularCone extends Figure{
     }
 
     @Override
+    public Object getNumber() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "Right Circular Cone (surface area: " + getSurfaceArea() + ", volume: " + getVolume() + ")";
     }

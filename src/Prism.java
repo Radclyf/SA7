@@ -24,6 +24,11 @@ public class Prism extends Figure{
     }
 
     @Override
+    public Object getNumber() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "Prism (surface area: " + getSurfaceArea() + ", volume: " + getVolume() + ")";
     }
