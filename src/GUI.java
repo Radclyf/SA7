@@ -39,6 +39,8 @@ public class GUI {
                     case "Cylinder":
                         double radius = Double.parseDouble(radiusField.getText());
                         double height2 = Double.parseDouble(heightField.getText());
+                        surfaceArea = 2 * Math.PI * radius * height2 + 2 * Math.PI * Math.pow(radius, 2);
+                        volume = Math.PI * Math.pow(radius, 2) * height2;
                         break;
                     case "Ellipsoid":
                         double a = Double.parseDouble(lengthField.getText());
@@ -156,7 +158,7 @@ public class GUI {
             }
         });
 
-        class SortButtonListener implements ActionListener {
+        class volumeSortButton implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 List<Figure> figuresList = null;
                 Collections.sort(figuresList, new VolumeComparator());
@@ -169,6 +171,27 @@ public class GUI {
             textArea1.append(f.getShape() + " - Surface Area: " + f.getSurfaceArea() + " - Volume: " + f.getVolume()+"\n");
         }
         figuresList = new Figure[0];
+        surfaceAreaSortButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        Figure[] finalFiguresList = figuresList;
+        class surfaceAreaSortButton implements ActionListener {
+            public void actionPerformed(ActionEvent e) {
+                List<Figure> figuresList = null;
+                Collections.sort(figuresList, new SurfaceAreaComparator());
+            }
+        }
+
+        textArea1.setText("");
+        for(Figure f : figuresList) {
+            textArea1.append(f.getShape() + " - " + f.getShape() + " - Surface Area: " + f.getSurfaceArea() + " - Volume: " + f.getVolume()+"\n");
+        }
+
+
     }
 
     public static void main(String[] args) {
