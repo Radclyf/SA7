@@ -12,13 +12,16 @@ public class GUI {
     private JTextField heightField;
     private JTextField baseField;
     private JTextField perimeterField;
+    private JLabel surfaceAreaField;
+    private JLabel volumeField;
+    private JLabel nameField;
 
 
     public GUI() {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String name;
+                String name = nameField.getText();
                 String shape = (String) comboBox1.getSelectedItem();
                 double surfaceArea = 0;
                 double volume = 0;
@@ -56,8 +59,47 @@ public class GUI {
                         surfaceArea = length1 * width1 + length1 * Math.sqrt(Math.pow(width1 / 2, 2) + Math.pow(height1, 2) + width1) * Math.sqrt(Math.pow(1 / 2, 2) + Math.pow(height1, 2));
                         volume = length1 * width1 * height1 / 3;
                         break;
-
+                    case "Pyramid":
+                        double baseArea = Double.parseDouble(lengthField.getText());
+                        double perimeter1 = Double.parseDouble(widthField.getText());
+                        double height4 = Double.parseDouble(heightField.getText());
+                        surfaceArea = (baseArea + (perimeter1 * height4)) / 2;
+                        volume = (baseArea * height4) / 3;
+                        break;
+                    case "Rectangular Solid":
+                        double length = Double.parseDouble(lengthField.getText());
+                        double width = Double.parseDouble(widthField.getText());
+                        double height = Double.parseDouble(heightField.getText());
+                        surfaceArea = 2 * (length * width + width * height + length * height);
+                        volume = length * width * height;
+                        break;
+                    case "Cube":
+                        double side = Double.parseDouble(lengthField.getText());
+                        surfaceArea = 6 * side * side;
+                        volume = side * side * side;
+                        break;
+                    case "Right Circular Cone":
+                        double radius1 = Double.parseDouble(radiusField.getText());
+                        double height5 = Double.parseDouble(heightField.getText());
+                        surfaceArea = Math.PI * radius1 * (radius1 + Math.sqrt(Math.pow(height5, 2) + Math.pow(radius1, 2)));
+                        volume = Math.PI * Math.pow(radius1, 2) * height5 / 3;
+                        break;
+                    case "Tetrahedron":
+                        double sideLength = Double.parseDouble(lengthField.getText());
+                        surfaceArea = Math.sqrt(3) * (sideLength * sideLength);
+                        volume = (Math.pow(sideLength,3))/(6 * Math.sqrt(2));
+                        break;
                 }
+
+                surfaceAreaField.setText(String.valueOf(surfaceArea));
+                volumeField.setText(String.valueOf(volume));
+
+                saveButton.setEnabled(false);
+                nameField.setEnabled(false);
+                comboBox1.setEnabled(false);
+
+                JTextArea figuresTextArea = new JTextArea();
+                figuresTextArea.append(name + " - " + shape + " - Surface Area: " + surfaceArea + " - Volume: " + volume);
             }
         });
     }
