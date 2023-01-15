@@ -25,24 +25,24 @@ public class RectangularPyramid extends Figure{
     }
 
     public static class Pyramid extends RectangularPyramid {
-        private double length2;
-        private double width2;
+        private double baseArea;
+        private double perimeter1;
         private double height2;
-        public Pyramid(double length2, double width2, double height2) {
-            super(length2, width2, height2);
+        public Pyramid(double baseArea, double perimeter1, double height2) {
+            super(baseArea, perimeter1, height2);
             this.height2 = height2;
-            this.width2 = width2;
-            this.length2 = length2;
+            this.perimeter1 = perimeter1;
+            this.baseArea = baseArea;
         }
 
         @Override
         public double getSurfaceArea() {
-            return length2 * width2 + length2 * Math.sqrt(Math.pow(width2 / 2, 2) + Math.pow(height2, 2) + width2) * Math.sqrt(Math.pow(1 / 2, 2) + Math.pow(height2, 2));
+            return (baseArea + (perimeter1 * height2)) / 2;
         }
 
         @Override
         public double getVolume() {
-            return length2 * width2 * height2 / 3;
+            return (baseArea * height2) / 3;
         }
 
         @Override

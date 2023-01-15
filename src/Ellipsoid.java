@@ -31,7 +31,7 @@ public class Ellipsoid extends Figure{
 
     @Override
     public double getVolume() {
-        return (4/3) * Math.PI * a * b * c;
+        return (4.0 / 3.0) * Math.PI * a * b * c;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Ellipsoid extends Figure{
 
     public static class Sphere extends Ellipsoid {
         private double radius2;
-        public Sphere(double radius2) {
+        public Sphere(double radius21, double v, double radius2) {
             super(radius2, radius2, radius2);
             try {
                 if(radius2 < 0) {
@@ -61,7 +61,7 @@ public class Ellipsoid extends Figure{
 
         @Override
         public double getVolume() {
-            return (4 / 3) * Math.PI * Math.pow(radius2, 3);
+            return (4.0 / 3.0) * Math.PI * Math.pow(radius2, 3);
         }
 
         @Override
